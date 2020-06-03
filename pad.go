@@ -92,3 +92,7 @@ func (p *Pad) IsLinked() bool {
 	// todo
 	return false
 }
+
+func (p *Pad) SetOffset(offset int64) {
+	C.gst_pad_set_offset(p.pad, C.gint64(offset))
+}
