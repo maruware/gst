@@ -144,6 +144,13 @@ void X_gst_element_seek(GstElement *element, gint time_nanoseconds) {
                          GST_SEEK_TYPE_NONE, GST_CLOCK_TIME_NONE);
 }
 
+gint64 X_gst_element_query_duration(GstElement *element) {
+  gint64 d;
+  gst_element_query_duration(element, GST_FORMAT_TIME, &d);
+
+  return d;
+}
+
 void X_gst_structure_set_string(GstStructure *structure, const gchar *name, gchar *value) {
   GValue gv;
   memset(&gv, 0, sizeof(GValue));

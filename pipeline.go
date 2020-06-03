@@ -125,3 +125,8 @@ func (p *Pipeline) SetLatency(latency uint64) {
 func (p *Pipeline) Seek(t int) {
 	C.X_gst_element_seek(p.GstElement, C.gint(t))
 }
+
+func (p *Pipeline) QueryDuration() int64 {
+	d := C.X_gst_element_query_duration(p.GstElement)
+	return int64(d)
+}
